@@ -4,6 +4,7 @@ jQuery(document).ready(function($){
         $('#adult').show();
     }else{
         $('#darkContent').show();
+        $('#adult').hide();
     }
 
     $('#enter').on('click',function(){

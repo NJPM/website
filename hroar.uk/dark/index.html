@@ -6,21 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/dark.css">
+    <link rel="stylesheet" href="/styles/dark.css" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="/scripts/dark.js"></script>
-    <script type="text/javascript">
-      $(window).on('load', function() {
-          $('#adult').modal('show');
-      });
-  </script>
     <title>HroarDark</title>
 
   </head>
 
   <body class="container bg-secondary text-white">
 
-    <div class="modal show" id="adult" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal" id="adult" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-full" role="document">
             <div class="modal-content bg-dark text-secondary">
                 <div class="modal-header">
@@ -56,13 +51,54 @@
       </div>
     </nav>
     
-    <div class="container" id="darkContent">
-      <h1>Dark</h1>
-
-      <p>My after dark events calendar.</p>
-
-      <iframe src="https://calendar.google.com/calendar/embed?showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=ge9q3n3oc5e25gct6lndd9quoc%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=Europe%2FLondon" style="border-width:0" width="400" height="600" frameborder="0" scrolling="no"></iframe>
-
+    <div id="darkContent">
+      <div class="card bg-secondary text-dark">
+        <div class="card-header" id="headingSocial">
+          <h5 class="mb-0">
+            <button class="btn text-dark" data-toggle="collapse" data-target="#collapseSocial" aria-expanded="true" aria-controls="collapseSocial" style="background-color:transparent;width:100%;text-align:left;">
+              After Dark Accounts
+            </button>
+          </h5>
+        </div>
+    
+        <div id="collapseSocial" class="collapse show" aria-labelledby="headingSocial" data-parent="#darkContent">
+          <div class="card-body">
+            <a href="https://twitter.com/HroarDark?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @HroarDark</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <br>
+            <a href="https://t.me/hroar"><button class="btn bg-dark text-white" style="width:128px"><img src="https://telegram.org/img/t_logo.svg?1" style="height:25px;"> @Hroar</button></a>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-secondary text-dark">
+        <div class="card-header" id="headingCalendar">
+          <h5 class="mb-0">
+            <button class="btn text-dark collapsed" data-toggle="collapse" data-target="#collapseCalendar" aria-expanded="false" aria-controls="collapseCalendar" style="background-color:transparent;width:100%;text-align:left;">
+              Kink Event Calendar
+            </button>
+          </h5>
+        </div>
+        <div id="collapseCalendar" class="collapse" aria-labelledby="headingCalendar" data-parent="#darkContent">
+          <div class="card-body">
+            <iframe src="https://calendar.google.com/calendar/embed?showDate=0&amp;showPrint=0&amp;showCalendars=0&amp;mode=AGENDA&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=ge9q3n3oc5e25gct6lndd9quoc%40group.calendar.google.com&amp;color=%235229A3&amp;ctz=Europe%2FLondon" style="border-width:0" width="400" height="600" frameborder="0" scrolling="no"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="card bg-secondary text-dark">
+        <div class="card-header" id="headingRefDark">
+          <h5 class="mb-0">
+            <button class="btn text-dark collapsed" data-toggle="collapse" data-target="#collapseRefDark" aria-expanded="false" aria-controls="collapseRefDark" style="background-color:transparent;width:100%;text-align:left;">
+              NSFW Refsheet
+            </button>
+          </h5>
+        </div>
+        <div id="collapseRefDark" class="collapse" aria-labelledby="headingRefDark" data-parent="#darkContent">
+          <div class="card-body">
+            <div class="imgbox">
+              <a href="/images/darkRef.png"><img class="fit" src="/images/darkRef.png" alt="Artwork by Dhe" width="100%" height="auto"></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
