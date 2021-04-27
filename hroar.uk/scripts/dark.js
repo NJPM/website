@@ -17,4 +17,8 @@ jQuery(document).ready(function($){
         window.location.replace("/");
         sessionStorage.setItem('over18', '');
     });
+
+    if (window.location.hash == "#darkRef/") {
+        $('#collapseDarkRef').collapse();
+    };
 });
