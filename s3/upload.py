@@ -25,7 +25,7 @@ def upload_website():
     Upload all files in hroar.uk folder to hroar.uk bucket.
     Objects will be named based on relative path to hroar.uk folder.
     """
-    path = "/home/nathanminter1992/website/hroar.uk/"
+    path = "C:/Users/natha/Documents/Code/website/hroar.uk/"
     for root, dirs, files in os.walk(path):
         for f in files:
             file_name = os.path.join(root, f)
