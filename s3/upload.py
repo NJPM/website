@@ -1,6 +1,7 @@
 
 ## Imports
 import os
+import posixpath
 from boto3 import client
 from botocore.exceptions import ClientError
 
@@ -29,7 +30,7 @@ def upload_website():
     for root, dirs, files in os.walk(path):
         for f in files:
             file_name = os.path.join(root, f)
-            object_name = os.path.relpath(file_name, path)
+            object_name = os.path.relpath(file_name, path).replace(os.sep, posixpath.sep)
             if f.endswith(".html"):
                 s3_client.upload_file(file_name, "hroar.uk", object_name, ExtraArgs = {'ContentType': 'text/html'})
             else:
