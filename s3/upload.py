@@ -33,6 +33,8 @@ def upload_website():
             object_name = os.path.relpath(file_name, path).replace(os.sep, posixpath.sep)
             if f.endswith(".html"):
                 s3_client.upload_file(file_name, "hroar.uk", object_name, ExtraArgs = {'ContentType': 'text/html'})
+            elif f.endswith(".png"):
+                s3_client.upload_file(file_name, "hroar.uk", object_name, ExtraArgs = {'ContentType': 'image/png'})
             else:
                 s3_client.upload_file(file_name, "hroar.uk", object_name)
             print("{} uploaded.".format(object_name))
