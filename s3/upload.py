@@ -1,4 +1,3 @@
-
 ## Imports
 import os
 import posixpath
@@ -10,6 +9,7 @@ from decouple import config
 ACCESS_KEY = config("ACCESS_KEY")
 SECRET_ACCESS_KEY = config("SECRET_ACCESS_KEY")
 
+
 ## Connect to client with keys
 def connect_client():
     """
@@ -20,23 +20,23 @@ def connect_client():
     s3_client = client("s3", aws_access_key_id = ACCESS_KEY, aws_secret_access_key = SECRET_ACCESS_KEY)
     return s3_client
 
-## Upload all files in hroar.uk folder
+## Upload all files in hroar.dog folder
 def upload_website():
     """
-    Upload all files in hroar.uk folder to hroar.uk bucket.
-    Objects will be named based on relative path to hroar.uk folder.
+    Upload all files in hroar.dog folder to hroar.dog bucket.
+    Objects will be named based on relative path to hroar.dog folder.
     """
-    path = "C:/Users/natha/Documents/Code/website/hroar.uk/"
+    path = "C:/Users/natha/Documents/Code/website/hroar.dog/"
     for root, dirs, files in os.walk(path):
         for f in files:
             file_name = os.path.join(root, f)
             object_name = os.path.relpath(file_name, path).replace(os.sep, posixpath.sep)
             if f.endswith(".html"):
-                s3_client.upload_file(file_name, "hroar.uk", object_name, ExtraArgs = {'ContentType': 'text/html'})
+                s3_client.upload_file(file_name, "hroar.dog", object_name, ExtraArgs = {'ContentType': 'text/html'})
             elif f.endswith(".png"):
-                s3_client.upload_file(file_name, "hroar.uk", object_name, ExtraArgs = {'ContentType': 'image/png'})
+                s3_client.upload_file(file_name, "hroar.dog", object_name, ExtraArgs = {'ContentType': 'image/png'})
             else:
-                s3_client.upload_file(file_name, "hroar.uk", object_name)
+                s3_client.upload_file(file_name, "hroar.dog", object_name)
             print("{} uploaded.".format(object_name))
 
 if __name__ == "__main__":
